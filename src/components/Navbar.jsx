@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import pic from '../../public/photo.avif'
+import pic from '../assets/photo.avif';
 import { AiOutlineMenu } from "react-icons/ai"; 
 import { IoCloseSharp } from "react-icons/io5";
+
+import { Link } from "react-scroll";
 
 function Navbar() {
 
@@ -21,13 +23,17 @@ function Navbar() {
     },
     {
       id: 4,
+      text: 'Experience',
+    },
+    {
+      id: 5,
       text: 'Contact',
     },
   ]
 
   return (
     <>
-      <div className='max-w-screen-2xl container mx-auto px-4 md:px-20 h-16 shadow-md fixed top-0 left-0 right-0'>
+      <div className='max-w-screen-2xl container mx-auto px-4 md:px-20 h-16 shadow-md fixed top-0 left-0 right-0 z-50 bg-white'>
         <div className='flex justify-between items-center h-16'>
           <div className='flex space-x-2'> 
             <img src={pic} alt='' className='w-12 h-12 rounded-full'/>
@@ -40,7 +46,14 @@ function Navbar() {
           <div>
             <ul className='hidden md:flex space-x-8'>
               {navItems.map(({id, text}) => (
-                <li key={id} className='hover:scale-105 duration-200 cursor-pointer'>{text}</li>
+                <li key={id} className='hover:scale-105 duration-200 cursor-pointer'>
+                  <Link to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass='active'
+                  >{text}</Link>
+                </li>
               ))}
             </ul>
             <div onClick={() => setMenu(!menu)} 
@@ -52,10 +65,19 @@ function Navbar() {
         </div>
         {/**Mobile Navbar */}
         { menu && (
-          <div>
+          <div className='bg-white'>
             <ul className='md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-2xl'>
               {navItems.map(({id, text}) => (
-                <li key={id} className='hover:scale-105 duration-200 cursor-pointer'>{text}</li>
+                <li key={id} className='hover:scale-105 duration-200 cursor-pointer'>
+                  <Link 
+                    onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass='active'
+                  >{text}</Link>
+                </li>
               ))}
             </ul>
           </div>

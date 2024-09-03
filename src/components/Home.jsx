@@ -1,4 +1,4 @@
-import pic from '../../public/photo.avif'
+import pic from '../assets/photo.avif'
 
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -16,7 +16,7 @@ import { ReactTyped } from "react-typed";
 function Home() {
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20">
+      <div name="Home" className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-24 space-y-2 order-2 md:order-1">
             <span className="text-xl">Welcome to my Feed</span>
@@ -47,12 +47,14 @@ function Home() {
                     <h1 className="font-bold">Also Checkout</h1>
                     <ul className="flex space-x-5 items-center justify-center">
                         <li>
-                            {" "}
-                            <FaLinkedin className="text-3xl cursor-pointer" />
+                            <a href="https://www.linkedin.com/in/palash-balpande-1a969413a/" target="_blank">
+                              <FaLinkedin className="text-3xl cursor-pointer" />
+                            </a>
                         </li>
                         <li>
-                            {" "}
-                            <FaGithub className="text-3xl cursor-pointer" />
+                            <a href="https://github.com/palashbalpande" target="_blank">
+                              <FaGithub className="text-3xl cursor-pointer" />
+                            </a>
                         </li>
                     </ul>
                 </div>
